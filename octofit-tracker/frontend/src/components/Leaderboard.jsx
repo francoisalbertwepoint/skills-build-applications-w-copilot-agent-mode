@@ -10,8 +10,8 @@ export default function Leaderboard() {
         const codespaceName = import.meta.env.VITE_CODESPACE_NAME;
         const apiBaseUrl = codespaceName
           ? `https://${codespaceName}-8000.app.github.dev`
-          : 'http://localhost:8000';
-        const response = await fetch(`${apiBaseUrl}/api/leaderboard/`);
+          : '/api';
+        const response = await fetch(`${apiBaseUrl}/leaderboard/`);
         const data = await response.json();
         setEntries(Array.isArray(data) ? data : data.results || []);
       } catch (err) {
